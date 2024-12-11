@@ -1,4 +1,6 @@
-﻿IDay[] days = [];
+﻿IDay[] days = [
+    new Day1()
+];
 
 Console.WriteLine("Mike's Advent of Code 2024");
 Console.WriteLine("-Available Days-");
