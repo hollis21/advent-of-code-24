@@ -1,5 +1,6 @@
 ﻿IDay[] days = [
     new Day1()
+    ,new Day2()
 ];
 
 Console.WriteLine("Mike's Advent of Code 2024");
