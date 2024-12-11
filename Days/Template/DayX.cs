@@ -1,4 +1,3 @@
-
 public class DayX : IDay
 {
     public string Title => throw new NotImplementedException();
