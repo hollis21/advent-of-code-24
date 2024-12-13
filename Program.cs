@@ -5,10 +5,11 @@
     , new Day4()
     , new Day5()
     , new Day6()
+    , new Day7()
 ];
 
-int selectedDay = 0;
-string selectedSolution = string.Empty;
+int selectedDay = 7;
+string selectedSolution = "B";
 
 if (selectedDay == 0)
 {
