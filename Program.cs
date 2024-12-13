@@ -3,6 +3,7 @@
     , new Day2()
     , new Day3()
     , new Day4()
+    , new Day5()
 ];
 
 Console.WriteLine("Mike's Advent of Code 2024");
