@@ -4,33 +4,46 @@
     , new Day3()
     , new Day4()
     , new Day5()
+    , new Day6()
 ];
 
-Console.WriteLine("Mike's Advent of Code 2024");
-Console.WriteLine("-Available Days-");
-for (int i = 0; i < days.Length; i++)
-{
-    Console.WriteLine($"{i + 1} - {days[i].Day} - {days[i].Title}");
-}
-Console.WriteLine("Select a day:");
-var response = Console.ReadLine();
+int selectedDay = 0;
+string selectedSolution = string.Empty;
 
-if (!int.TryParse(response, out int selectedDay) || selectedDay <= 0 || selectedDay > days.Length)
+if (selectedDay == 0)
 {
-    Console.WriteLine();
-    Console.WriteLine("Invalid entry. Exiting.");
-    return;
+    Console.WriteLine("Mike's Advent of Code 2024");
+    Console.WriteLine("-Available Days-");
+    for (int i = 0; i < days.Length; i++)
+    {
+        Console.WriteLine($"{i + 1} - {days[i].Day} - {days[i].Title}");
+    }
+    Console.WriteLine("Select a day:");
+    var response = Console.ReadLine();
+    if (response == "")
+    {
+        response = days.Length.ToString();
+    }
+    if (!int.TryParse(response, out selectedDay) || selectedDay <= 0 || selectedDay > days.Length)
+    {
+        Console.WriteLine();
+        Console.WriteLine("Invalid entry. Exiting.");
+        return;
+    }
 }
 
-Console.WriteLine("Solution A or B?");
-response = Console.ReadLine();
-if (response == null || (response.ToUpper() != "A" && response.ToUpper() != "B"))
+if (selectedSolution == string.Empty)
 {
-    Console.WriteLine();
-    Console.WriteLine("Invalid entry. Exiting.");
-    return;
+    Console.WriteLine("Solution A or B?");
+    var response = Console.ReadLine();
+    if (response == null || (response.ToUpper() != "A" && response.ToUpper() != "B"))
+    {
+        Console.WriteLine();
+        Console.WriteLine("Invalid entry. Exiting.");
+        return;
+    }
+    selectedSolution = response;
 }
-
 IDay day = days[selectedDay - 1];
 
 var inputFile = $"Days/{day.GetType().Name}/input.txt";
@@ -45,7 +58,7 @@ using (var sr = new StreamReader(inputFile))
 {
     string? result = null;
     var lines = sr.ToIEnumerable();
-    if (response.ToUpper() == "A")
+    if (selectedSolution.ToUpper() == "A")
     {
         result = await day.SolutionA(lines);
     }
