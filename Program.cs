@@ -7,10 +7,11 @@
     , new Day6()
     , new Day7()
     , new Day8()
+    , new Day9()
 ];
 
-int selectedDay = 0;
-string selectedSolution = "";
+int selectedDay = 9;
+string selectedSolution = "B";
 
 if (selectedDay == 0)
 {
