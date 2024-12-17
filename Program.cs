@@ -8,10 +8,11 @@
     , new Day7()
     , new Day8()
     , new Day9()
+    , new Day10()
 ];
 
-int selectedDay = 9;
-string selectedSolution = "B";
+int selectedDay = 0;
+string selectedSolution = "";
 
 if (selectedDay == 0)
 {
@@ -39,7 +40,7 @@ if (selectedSolution == string.Empty)
 {
     Console.WriteLine("Solution A or B?");
     var response = Console.ReadLine();
-    if (response == null || (response.ToUpper() != "A" && response.ToUpper() != "B"))
+    if (response == null || (!response.Equals("A", StringComparison.CurrentCultureIgnoreCase) && !response.Equals("B", StringComparison.CurrentCultureIgnoreCase)))
     {
         Console.WriteLine();
         Console.WriteLine("Invalid entry. Exiting.");
@@ -61,7 +62,7 @@ using (var sr = new StreamReader(inputFile))
 {
     string? result = null;
     var lines = sr.ToIEnumerable();
-    if (selectedSolution.ToUpper() == "A")
+    if (selectedSolution.Equals("A", StringComparison.CurrentCultureIgnoreCase))
     {
         result = await day.SolutionA(lines);
     }
